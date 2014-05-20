@@ -28,8 +28,8 @@ TMPDIR=$(mktemp -d ~/git-latexdiff.XXXXXX)
 latexdiff "$1" "$2" > $TMPDIR/diff.tex
 pdflatex -interaction nonstopmode -output-directory $TMPDIR $TMPDIR/diff.tex
 open $TMPDIR/diff.pdf
+sleep 1
 rm -rf $TMPDIR
-
 ```
 **NOTE: this script assumes that you have added /usr/texbin to your PATH.**
 * Now add the following stanzas to ~/.gitconfig or repo/.git/config
