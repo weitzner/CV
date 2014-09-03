@@ -1,24 +1,39 @@
 \documentclass[12pt]{scrartcl}
 
-\usepackage[T1]{fontenc}
-\usepackage{mathpazo}
+%\usepackage[T1]{fontenc}
+%\usepackage{mathpazo}
 \usepackage{amsmath,amsfonts}
+
+\usepackage{fontspec,xltxtra,xunicode}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Mapping=tex-text]{Hoefler Text}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans MT}
+\setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+%% Fixes for letterspacing that work with XeLaTeX
+\newcommand{\allcapsspacing}[1]{{\addfontfeature{LetterSpace=7.5}#1}}
+\newcommand{\smallcapsspacing}[1]{{\addfontfeature{LetterSpace=5.0}#1}}
+\renewcommand{\textsc}[1]{\smallcapsspacing{\scshape{#1}}}
+
 \usepackage{CV}
-\usepackage[letterspace=100]{microtype}
+%\usepackage[letterspace=100]{microtype}
+
+\usepackage{titlesec}
+\titleformat{\section}{}{}{18pt}{\hrule\vspace{\baselineskip}\sffamily\Large\uppercase}
 
 \begin{document}
 
 \begin{center}
-\Large{\lsstyle \textsc{Brian D. Weitzner}}
+\Large{\sffamily\allcapsspacing{\uppercase{Brian D. Weitzner}}}
 
-\normalsize{\lsstyle \textsc{Department of Chemical \& Biomolecular Engineering \\
+\normalsize{\textsc{Department of Chemical \& Biomolecular Engineering \\
 Johns Hopkins University \\
 3400 N. Charles Street, Baltimore, Maryland 21218 \\
 \vspace{0.25\baselineskip}
 brian.weitzner@jhu.edu}}
 \end{center}
 
-\section{\lsstyle Education}
+\section*{\allcapsspacing{Education}}
 
 \begin{CV}
 \item[2014] Ph.D. in Chemical \& Biomolecular Engineering at The Johns Hopkins University (expected)
@@ -26,7 +41,7 @@ brian.weitzner@jhu.edu}}
 \item[2009] Minor in Biomedical Engineering at Cornell University
 \end{CV}
 
-\section{\lsstyle Research Experience}
+\section*{\allcapsspacing{Research Experience}}
 \begin{CV}
 \item[2009--2014] Graduate Student, The Johns Hopkins University
 
@@ -49,10 +64,13 @@ Topic: Dimerization motifs of cytosolic sulfotransferases
 Topic: Agreement among automated quaternary structure prediction methods
 \end{CV}
 
-\section{\lsstyle Publications}
+\pagebreak
+\section*{\allcapsspacing{Publications}}
 \noindent \textbf{Weitzner BD}, Dunbrack RL, Jr, Gray JJ (2014) ``The origin of CDR H3 structural diversity,'' \textit{under review} 
 
-\noindent \textbf{Weitzner BD}, Kuroda D, Marze N, Xu J, Gray JJ (2014) ``Blind prediction performance of RosettaAntibody 3.0: Grafting, relaxation, kinematic loop modeling, and full CDR optimization,'' \textit{Proteins} 
+\vspace{0.75\baselineskip}
+
+\noindent \textbf{Weitzner BD}, Kuroda D, Marze N, Xu J, Gray JJ (2014) ``Blind prediction performance of RosettaAntibody 3.0: Grafting, relaxation, kinematic loop modeling, and full CDR optimization,'' \textit{Proteins} 82(8), 1611-23. 
 
 \vspace{0.75\baselineskip}
 
@@ -72,9 +90,9 @@ Topic: Agreement among automated quaternary structure prediction methods
 
 \vspace{0.75\baselineskip}
 
-\noindent\textbf{Weitzner B}, Meehan T, Xu Q, Dunbrack R (2009) ``An unusually small dimer interface is observed in all available crystal structures of cytosolic sulfotransferases,'' \textit{Proteins.} 75(2), 1097-0134.
+\noindent\textbf{Weitzner B}, Meehan T, Xu Q, Dunbrack R (2009) ``An unusually small dimer interface is observed in all available crystal structures of cytosolic sulfotransferases,'' \textit{Proteins.} 75(2), 1097-134.
 
-\section{\lsstyle Selected Honors and Awards}
+\section*{\allcapsspacing{Selected Honors and Awards}}
 \begin{CV}
 \item[2013] Rosetta Service Award: Instructor at inaugural Rosetta Boot Camp
 \item[2013] Rosetta Service Award: Leader of transition of Rosetta source code to a new version control system
@@ -84,12 +102,18 @@ Topic: Agreement among automated quaternary structure prediction methods
 \item[2003] Eagle Scout
 \end{CV}
 
-\pagebreak
-\section{\lsstyle Scientific Meetings and Talks}
-\noindent Weitzner BD, Gray JJ (2013) ``Computational Structure Prediction, Docking and Design of Antibodies'' \textit{Antibody Engineering and Therapeutics}, Huntington Beach, CA.
+\section*{\allcapsspacing{Invited Seminars and Talks}}
+\noindent Weitzner BD, Gray JJ (2014) ``Next-generation Antibody Modeling'' \textit{Seminar, Center for Biomolecular Structure and Dynamics, University of Montana}, Missoula, MT.
 
 \vspace{0.75\baselineskip}
 
+\noindent Weitzner BD, Dunbrack RL, Gray JJ (2014) ``The origin of CDR H3 Structural Diversity'' \textit{Vortr\"{a}ge, Fakult\"{a}t f\"{u}r Chemie, Technische Universit\"{a}t M\"{u}nchen}, Munich, Germany.
+
+\vspace{0.75\baselineskip}
+
+\noindent Weitzner BD, Gray JJ (2013) ``Computational Structure Prediction, Docking and Design of Antibodies'' \textit{IBC Antibody Engineering and Therapeutics}, Huntington Beach, CA. (delivered on behalf of JJG during his paternity leave)
+
+\section*{\allcapsspacing{Scientific Meetings and Talks}}
 \noindent Weitzner BD, Kuroda D, Marze N, Xu J, Gray JJ (2013) ``Benchmarking RosettaAntibody: Antibody Modeling Assessment II'' \textit{Antibody Engineering and Therapeutics}, Huntington Beach, CA.
 
 \vspace{0.75\baselineskip}
@@ -112,14 +136,19 @@ Topic: Agreement among automated quaternary structure prediction methods
 
 \noindent Weitzner BD, Baugh EH, Gray JJ (2010) ``PyMOL--PyRosetta Integration'' \textit{Rosetta Conference}, Leavenworth, WA.
 
-\section{\lsstyle Scientific Posters}
-\noindent Weitzner, BD, Dunbrack RL, Gray JJ (2012) ``Are CDR-H3 loops special?'' \textit{Rosetta Conference}, Leavenworth, WA.
+\pagebreak
+\section*{\textsc{Scientific Posters}}
+\noindent Weitzner, BD, Dunbrack RL, Gray JJ (2014) ``CDR H3 loop prediction'' \textit{Rosetta Conference}, Leavenworth, WA.
+
+\vspace{0.75\baselineskip}
+
+\noindent Weitzner, BD, Dunbrack RL, Gray JJ (2012) ``Are CDR H3 loops special?'' \textit{Rosetta Conference}, Leavenworth, WA.
 
 \vspace{0.75\baselineskip}
 
 \noindent Weitzner, BD, Dunbrack RL, Gray JJ (2011) ``Accessing the conformation space of long CDR H3 loops through $\beta$-turn detection'' \textit{Rosetta Conference}, Leavenworth, WA.
 
-\section{\lsstyle Teaching Experience}
+\section*{\allcapsspacing{Teaching Experience}}
 \begin{CV}
 \item[Spring 2013] Co-Instructor, Rosetta Boot Camp, Chapel Hill, NC
 \item[Fall 2011] Co-Instructor, ChemBE 418 -- Projects in the Design of a Chemical Car, Johns Hopkins University
@@ -129,7 +158,7 @@ Topic: Agreement among automated quaternary structure prediction methods
 \item[Fall 2008] Teaching Assistant, ChemE 1120 -- Introduction to Chemical Engineering, Cornell University
 \end{CV}
 
-\section{\lsstyle Activities and Outreach}
+\section*{\allcapsspacing{Activities and Outreach}}
 \begin{CV}
 \item[2013--2014] Student volunteer, STEM Achievement in Baltimore Elementary Schools (SABES) Program
 \item[2010--2011] Member, Rosetta XRW Team to overhaul the structure of the source code
