@@ -18,8 +18,35 @@
 \usepackage{CV}
 %\usepackage[letterspace=100]{microtype}
 
+\newcommand{\tworowstwocolsitem}[4]{
+\noindent
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
+		#1 & #2 \\
+		#3 & #4 \\
+\end{tabular*}\vspace{0.75\baselineskip}}
+
+\newcommand{\educationitem}[4]{
+\tworowstwocolsitem{#1}{#2}{\textit{#3}}{\textit{#4}}}
+
+\newcommand{\teachingitem}[4]{
+\tworowstwocolsitem{#1}{#2}{\textit{#3}}{#4}}
+
+\newcommand{\researchitem}[4]{
+\noindent
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
+		#1 & #2 \\
+		\textit{#3}\\
+\end{tabular*}\\Topic: #4\\\\}
+
+\newcommand{\yearitem}[2]{
+\noindent
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
+		#1 & #2 \\
+\end{tabular*}\vspace{0.75\baselineskip}}
+
 \usepackage{titlesec}
-\titleformat{\section}{}{}{18pt}{\hrule\vspace{0.75\baselineskip}\sffamily\Large\uppercase}
+\titleformat{\section}{}{}{}{\hrule\vspace{0.75\baselineskip}\sffamily\Large\uppercase}
+\titlespacing{\section}{0pt}{-5pt}{*1}
 
 % enables reverse numbering
 \usepackage[leftmargin=12pt, itemsep=0.75\baselineskip]{etaremune}
@@ -37,37 +64,16 @@ brian.weitzner@jhu.edu}}
 \end{center}
 
 \section*{\allcapsspacing{Education}}
-
-\begin{CV}
-\item[2014] Ph.D. in Chemical \& Biomolecular Engineering at The Johns Hopkins University (expected)
-\item[2009] B.S. in Chemical \& Biomolecular Engineering at Cornell University
-\item[2009] Minor in Biomedical Engineering at Cornell University
-\end{CV}
+\educationitem{The Johns Hopkins University}{Baltimore, MD}{Ph.D. Chemical \& Biomolecular Engineering}{2015 (Expected)}
+\educationitem{Cornell University}{Ithaca, NY}{B.S. Chemical \& Biomolecular Engineering, Minor Biomedical Engineering}{2009}
 
 \section*{\allcapsspacing{Research Experience}}
-\begin{CV}
-\item[2009--2014] Graduate Student, The Johns Hopkins University
+\researchitem{Graduate Research Assistant, The Johns Hopkins University}{2009--2014}{Advisor: Dr. Jeffrey J. Gray}{Computational modeling of antibodies and antibody--antigen complexes}
+\researchitem{Undergraduate Research Assistant, Cornell University}{2006--2009}{Advisors: Dr. Matthew P. DeLisa \& Dr. Jeffrey D. Varner}{Computational retargeting of an E3 ubiquitin ligase}
+\researchitem{Undergraduate Research Assistant, Fox Chase Cancer Center}{2005--2009}{Advisor: Dr. Roland L. Dunbrack, Jr.}{Dimerization motifs of cytosolic sulfotransferases}
+\researchitem{Howard Hughes Student Scientist, Fox Chase Cancer Center}{2004--2005}{Advisor: Dr. Roland L. Dunbrack, Jr.}{Agreement among automated quaternary structure prediction methods}
 
-\emph{Advisor: Dr. Jeffrey J. Gray} \\
-Topic: Computational modeling of antibodies and antibody--antigen complexes
-
-\item[2006--2009] Undergraduate Research Assistant, Cornell University
-
-\emph{Advisors: Dr. Matthew P. DeLisa \& Dr. Jeffrey D. Varner} \\
-Topic: Computational retargeting of an E3 ubiquitin ligase
-
-\item[2005--2009] Undergraduate Research Assistant, Fox Chase Cancer Center
-
-\emph{Advisor: Dr. Roland L. Dunbrack, Jr.} \\
-Topic: Dimerization motifs of cytosolic sulfotransferases
-
-\item[2004--2005] Howard Hughes Student Scientist, Fox Chase Cancer Center
-
-\emph{Advisor: Dr. Roland L. Dunbrack, Jr.} \\
-Topic: Agreement among automated quaternary structure prediction methods
-\end{CV}
-
-\pagebreak
+%\pagebreak
 \section*{\allcapsspacing{Publications}}
 \begin{etaremune}
 \item \textbf{Weitzner BD}, Dunbrack RL, Jr, Gray JJ (2014) ``The origin of CDR H3 structural diversity,'' \textit{under review}
@@ -86,14 +92,12 @@ Topic: Agreement among automated quaternary structure prediction methods
 \end{etaremune}
 
 \section*{\allcapsspacing{Selected Honors and Awards}}
-\begin{CV}
-\item[2013] Rosetta Service Award: Instructor at inaugural Rosetta Boot Camp
-\item[2013] Rosetta Service Award: Leader of transition of Rosetta source code to a new version control system
-\item[2009] American Institute of Chemists Student Award
-\item[2008] 1$^\text{st}$ place in national AIChE Car Competition and first team to ever perform perfectly
-\item[2004--2005] Howard Hughes Medical Institute Student Scientist Program, Fox Chase Cancer Center
-\item[2003] Eagle Scout
-\end{CV}
+\yearitem{Rosetta Service Award: Instructor at inaugural Rosetta Boot Camp}{2013}
+\yearitem{Rosetta Service Award: Leader of transition of Rosetta source\\code to a new version control system}{2013}
+\yearitem{American Institute of Chemists Student Award}{2009}
+\yearitem{1$^\text{st}$ place in national AIChE Car Competition;\\first team to ever perform perfectly}{2008}
+\yearitem{Howard Hughes Medical Institute Student Scientist Program;\\Fox Chase Cancer Center}{2004--2005}
+\yearitem{Eagle Scout}{2003}
 
 \section*{\allcapsspacing{Invited Seminars and Talks}}
 \begin{etaremune}
@@ -119,7 +123,7 @@ Topic: Agreement among automated quaternary structure prediction methods
 \item Weitzner BD, Baugh EH, Gray JJ (2010) ``PyMOL--PyRosetta Integration'' \textit{Rosetta Conference}, Leavenworth, WA.
 \end{etaremune}
 
-\pagebreak
+%\pagebreak
 \section*{\textsc{Scientific Posters}}
 \begin{etaremune}
 \item Weitzner, BD, Dunbrack RL, Gray JJ (2014) ``CDR H3 loop prediction'' \textit{Rosetta Conference}, Leavenworth, WA.
@@ -130,14 +134,12 @@ Topic: Agreement among automated quaternary structure prediction methods
 \end{etaremune}
 
 \section*{\allcapsspacing{Teaching Experience}}
-\begin{CV}
-\item[Spring 2013] Co-Instructor, Rosetta Boot Camp, Chapel Hill, NC
-\item[Fall 2011] Co-Instructor, ChemBE 418 -- Projects in the Design of a Chemical Car, Johns Hopkins University
-\item[Fall 2010] Teaching Assistant, ChemBE 409 -- Modeling, Dynamics and Control of Chemical and Biological Systems, Johns Hopkins University
-\item[Spring 2010] Teaching Assistant, ChemBE 414/614 -- Computational Protein Structure Prediction and Design, Johns Hopkins University
-\item[Spring 2009] Teaching Assistant, ChemE 3900 -- Chemical Kinetics and Reactor Design, Cornell University
-\item[Fall 2008] Teaching Assistant, ChemE 1120 -- Introduction to Chemical Engineering, Cornell University
-\end{CV}
+\teachingitem{Co-Instructor, Rosetta Boot Camp}{Spring 2013}{An intense week-long crash course to developing in Rosetta}{Chapel Hill, NC}
+\teachingitem{Co-Instructor, ChemBE 418}{Fall 2011}{Projects in the Design of a Chemical Car}{Johns Hopkins University}
+\teachingitem{Teaching Assistant, ChemBE 409}{Fall 2010}{Modeling, Dynamics \& Control of Chemical \& Biological Systems}{Johns Hopkins University}
+\teachingitem{Teaching Assistant, ChemBE 414/614}{Fall 2010}{Computational Protein Structure Prediction and Design}{Johns Hopkins University}
+\teachingitem{Teaching Assistant, ChemE 3900}{Spring 2009}{Chemical Kinetics and Reactor Design}{Cornell University}
+\teachingitem{Teaching Assistant, ChemE 1120}{Fall 2008}{Introduction to Chemical Engineering}{Cornell University}
 
 \section*{\allcapsspacing{Activities and Outreach}}
 \begin{CV}
