@@ -1,12 +1,14 @@
-\documentclass[12pt]{scrartcl}
+\documentclass[12pt]{article}
 
 %\usepackage[T1]{fontenc}
 %\usepackage{mathpazo}
+\usepackage{fullpage}
 \usepackage{amsmath,amsfonts}
 
 \usepackage{fontspec,xltxtra,xunicode}
 \defaultfontfeatures{Mapping=tex-text}
 \setromanfont[Mapping=tex-text]{Hoefler Text}
+%\setromanfont[Mapping=tex-text]{Bembo Book MT Pro}
 \setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans MT}
 \setmonofont[Scale=MatchLowercase]{Andale Mono}
 
@@ -35,7 +37,7 @@
 \noindent
 \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
 		#1 & #2 \\
-\end{tabular*}\\#3\\\\}
+\end{tabular*}\\#3\vspace{-0.25\baselineskip}\\\\}
 
 \newcommand{\outreachitem}[4]{
 \noindent
@@ -54,11 +56,11 @@
 \end{tabular*}\vspace{0.75\baselineskip}}
 
 \usepackage{titlesec}
-\titleformat{\section}{}{}{}{\hrule\vspace{0.5\baselineskip}\sffamily\Large\uppercase}
+\titleformat{\section}{}{}{}{\hrule\vspace{0.5\baselineskip}\sffamily\Large\uppercase}{}{}
 \titlespacing{\section}{0pt}{-15pt}{*1}
 
 % enables reverse numbering
-\usepackage[leftmargin=12pt, itemsep=0.75\baselineskip]{etaremune}
+\usepackage[leftmargin=12pt, itemsep=0.5\baselineskip]{etaremune}
 
 \begin{document}
 
