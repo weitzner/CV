@@ -62,6 +62,14 @@
 % enables reverse numbering
 \usepackage[leftmargin=12pt, itemsep=0.5\baselineskip]{etaremune}
 
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % clears the header and footer
+\renewcommand{\headrulewidth}{0pt} % removes the horizontal line that comes with fancyhdr
+\rfoot{\color{gray}\thepage}
+\lfoot{\color{gray}Weitzner}
+
 \begin{document}
 
 \begin{center}
