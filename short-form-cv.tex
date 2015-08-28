@@ -2,18 +2,20 @@
 
 %\usepackage[T1]{fontenc}
 %\usepackage{mathpazo}
-%\usepackage{fullpage}
-\usepackage[margin=0.4in]{geometry}
+\usepackage{fullpage}
+%\usepackage[margin=0.5in]{geometry}
 \usepackage{amsmath,amsfonts}
 \usepackage{textgreek}
 
 \usepackage{fontspec,xltxtra,xunicode}
 \defaultfontfeatures{Mapping=tex-text}
-%\setromanfont[Mapping=tex-text]{Hoefler Text}
-%\setromanfont[Mapping=tex-text]{Bembo Book MT Pro}
-\setromanfont[Mapping=tex-text]{Minion Pro}
+\setromanfont[Mapping=tex-text]{Bembo Book MT Pro}
+%\setromanfont[Mapping=tex-text]{Minion Pro}
 \setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
 \setmonofont[Scale=MatchLowercase]{Andale Mono}
+
+% Remove paragraph indentation
+\usepackage[parfill]{parskip}
 
 %% Fixes for letterspacing that work with XeLaTeX
 \newcommand{\allcapsspacing}[1]{{\addfontfeature{LetterSpace=7.5}#1}}
@@ -24,52 +26,58 @@
 %\usepackage[letterspace=100]{microtype}
 
 \newcommand{\tworowstwocolsitem}[4]{
-\noindent
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
-		#1 & #2 \\
-		#3 & #4 \\
-\end{tabular*}\vspace{0.5\baselineskip}}
+{#1} \hfill {#2} \\
+{#3} \hfill {#4} \\
+\vspace{-0.5\baselineskip}\par}
 
 \newcommand{\educationitem}[4]{
-\tworowstwocolsitem{#1}{#2}{\textit{#3}}{\textit{#4}}}
+\tworowstwocolsitem{\textbf{#1}}{#2}{\textit{#3}}{\textit{#4}}}
 
 \newcommand{\teachingitem}[4]{
 \tworowstwocolsitem{#1}{#2}{\textit{#3}}{#4}}
 
 \newcommand{\leadershipitem}[3]{
-\noindent
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
-		#1 & #2 \\
-\end{tabular*}\newline#3\vspace{0.5\baselineskip}\par}
+\textbf{#1} \hfill {#2} \\
+#3 \\
+\vspace{-0.5\baselineskip}\par}
 
 \newcommand{\outreachitem}[4]{
-\noindent
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
-		#1 & #2 \\
-		#3 & \\
-\end{tabular*}\newline#4\vspace{0.5\baselineskip}\par}
+{#1} \hfill {#2} \\
+#3 \par
+#4 
+\par\vspace{0.5\baselineskip}}
 
 \newcommand{\researchitem}[4]{
-\outreachitem{#1}{#2}{\textit{#3}}{Topic: #4}}
+\outreachitem{#1}{#2}{\textit{#3}}{\vspace{0.5\baselineskip}#4}}
 
 \newcommand{\yearitem}[2]{
-\noindent
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
-		#1 & #2 \\
-\end{tabular*}\vspace{0.3\baselineskip}}
+{#1} \hfill {#2} \\
+\vspace{-0.5\baselineskip}\par}
 
 \usepackage{titlesec}
-\titleformat{\section}{}{}{}{\hrule\vspace{0.5\baselineskip}\sffamily\large\uppercase}{}{}
+\titleformat{\section}{}{}{}{\vspace{0.25\baselineskip}\hrule\sffamily\large\uppercase}{}{}
 \titlespacing{\section}{0pt}{-18pt}{*1}
 
-% enables reverse numbering
-\usepackage[leftmargin=11pt, itemsep=0.15\baselineskip]{etaremune}
+\titleformat{\subsection}{}{}{}{\sffamily\normalsize\uppercase}{}{}
+\titlespacing{\subsection}{0pt}{0pt}{*1}
 
-\pagestyle{empty}
+% enables reverse numbering
+\usepackage[leftmargin=12pt, itemsep=0.25\baselineskip]{etaremune}
+
+%\pagestyle{empty}
+
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % clears the header and footer
+\renewcommand{\headrulewidth}{0pt} % removes the horizontal line that comes with fancyhdr
+\rfoot{\color{gray}\thepage}
+\lfoot{\color{gray}Weitzner}
+
 \begin{document}
 
 \begin{center}
-\large{\sffamily\allcapsspacing{\uppercase{Brian D. Weitzner}}}
+\large{\sffamily\allcapsspacing{\uppercase{Brian D. Weitzner}, Ph.D.}}
 
 \normalsize{\textsc{Department of Chemical \& Biomolecular Engineering,
 Johns Hopkins University \\
@@ -80,17 +88,20 @@ brian.weitzner@jhu.edu}}
 
 \section*{\allcapsspacing{Education}}
 \educationitem{The Johns Hopkins University}{Baltimore, MD}{Ph.D. Chemical \& Biomolecular Engineering}{March 2015}
-\educationitem{Cornell University}{Ithaca, NY}{B.S. Chemical \& Biomolecular Engineering, Minor Biomedical Engineering}{2009}
+\vspace{-\baselineskip}
+Dissertation title: Next-generation antibody modeling.
+
+\educationitem{Cornell University}{Ithaca, NY}{B.S. Chemical \& Biomolecular Engineering, Minor Biomedical Engineering}{May 2009}
 
 \section*{\allcapsspacing{Research Experience}}
-\researchitem{Graduate Research Assistant/Postdoctoral Fellow, The Johns Hopkins University}{2009--2015}{Advisor: Dr. Jeffrey J. Gray}{Computational modeling of antibodies and antibody--antigen complexes}
-\researchitem{Undergraduate Research Assistant, Cornell University}{2006--2009}{Advisors: Dr. Matthew P. DeLisa \& Dr. Jeffrey D. Varner}{Computational retargeting of an E3 ubiquitin ligase}
-\researchitem{Undergraduate Research Assistant, Fox Chase Cancer Center}{2005--2009}{Advisor: Dr. Roland L. Dunbrack, Jr.}{Dimerization motifs of cytosolic sulfotransferases}
-\researchitem{Howard Hughes Student Scientist, Fox Chase Cancer Center}{2004--2005}{Advisor: Dr. Roland L. Dunbrack, Jr.}{Agreement among automated quaternary structure prediction methods}
+\researchitem{\textbf{Graduate Research Assistant/Postdoctoral Fellow}, The Johns Hopkins University}{2009--2015}{Advisor: Dr. Jeffrey J. Gray}{\vspace{-0.75\baselineskip}}
+\researchitem{\textbf{Undergraduate Research Assistant}, Cornell University}{2006--2009}{Advisors: Dr. Matthew P. DeLisa \& Dr. Jeffrey D. Varner}{\vspace{-0.75\baselineskip}}
+\researchitem{\textbf{Undergraduate Research Assistant}, Fox Chase Cancer Center}{2005--2009}{Advisor: Dr. Roland L. Dunbrack, Jr.}{\vspace{-0.75\baselineskip}}
+\researchitem{\textbf{Howard Hughes Student Scientist}, Fox Chase Cancer Center}{2004--2005}{Advisor: Dr. Roland L. Dunbrack, Jr.}{\vspace{-0.75\baselineskip}}
 
 \section*{\allcapsspacing{Publications}}
 \begin{etaremune}
-\item Porter JR, \textbf{Weitzner BD}, Lange OF (2015) ``A framework simplifying combined sampling modes in Rosetta,'' \textit{sub judice}
+\item Porter JR, \textbf{Weitzner BD}, Lange OF (2015) ``A framework simplifying combined sampling modes in Rosetta,'' \textit{under review}
 \item Alford RF*, Koehler Leman J*, \textbf{Weitzner BD}, Duran AM, Tilley DC, Elazar A, Gray JJ (2015) ``An integrated framework advancing membrane protein modeling and design,'' \textit{PLoS Comput. Biol.} In press. (* equal contribution authors)
 \item \textbf{Weitzner BD}, Dunbrack RL, Jr, Gray JJ (2014) ``The origin of CDR H3 structural diversity,'' \textit{Structure}, accepted.
 \item \textbf{Weitzner BD*}, Kuroda D*, Marze N, Xu J, Gray JJ (2014) ``Blind prediction performance of RosettaAntibody 3.0: Grafting, relaxation, kinematic loop modeling, and full CDR optimization,'' \textit{Proteins} 82(8), 1611-23. (* equal contribution authors)
@@ -102,19 +113,19 @@ brian.weitzner@jhu.edu}}
 \end{etaremune}
 
 \section*{\allcapsspacing{Teaching Experience}}
-\yearitem{Guest Lecturer, ChemBE 414/614: \textit{Computational Protein Structure Prediction and Design}}{JHU, Fall 2014}
-\yearitem{Co-Instructor \& Module Creator, Rosetta Boot Camp: \textit{An intense crash course to developing in Rosetta}}{UNC, Spring 2013}
-\yearitem{Co-Instructor \& Course Co-Creator, ChemBE 418: \textit{Projects in the Design of a Chemical Car}}{JHU, Fall 2011}
-\yearitem{Teaching Assistant, ChemBE 409: \textit{Modeling, Dynamics \& Control of Chemical \& Biological Systems}}{JHU, Fall 2010}
-\yearitem{Teaching Assistant, ChemBE 414/614: \textit{Computational Protein Structure Prediction and Design}}{JHU, Spring 2010}
-\yearitem{Teaching Assistant, ChemE 3900: \textit{Chemical Kinetics and Reactor Design}}{Cornell University, Spring 2009}
-\yearitem{Teaching Assistant, ChemE 1120: \textit{Introduction to Chemical Engineering}}{Cornell University, Fall 2008}
+\yearitem{\textbf{Guest Lecturer, ChemBE 414/614}: \textit{Computational Protein Structure Prediction and Design}}{JHU, Fall 2014}
+\yearitem{\textbf{Co-Instructor}, Rosetta Boot Camp: \textit{An intense crash course to developing in Rosetta}}{UNC, Spring 2013}
+\yearitem{\textbf{Co-Instructor}, ChemBE 418: \textit{Projects in the Design of a Chemical Car}}{JHU, Fall 2011}
+\yearitem{\textbf{Teaching Assistant}, ChemBE 409: \textit{Modeling, Dynamics \& Control of Chemical \& Biological Systems}}{JHU, Fall 2010}
+\yearitem{\textbf{Teaching Assistant}, ChemBE 414/614: \textit{Computational Protein Structure Prediction and Design}}{JHU, Spring 2010}
+\yearitem{\textbf{Teaching Assistant}, ChemE 3900: \textit{Chemical Kinetics and Reactor Design}}{Cornell University, Spring 2009}
+\yearitem{\textbf{Teaching Assistant}, ChemE 1120: \textit{Introduction to Chemical Engineering}}{Cornell University, Fall 2008}
 
 \section*{\allcapsspacing{Scientific Leadership}}
 \leadershipitem{Developed RosettaCon Code of Conduct}{2014}{Led the development and implementation of Code of Conduct for RosettaCon to promote diversity. Served on the incident reporting panel 2014--2015.}
 \leadershipitem{Rosetta Boot Camp}{2013}{Identified need for training graduate students and postdocs. Helped developed curriculum to introduce students to Rosetta.}
 \leadershipitem{Undergraduate research mentor}{2012--2014}{Mentor to four undergraduate researchers in the Gray Lab}
-\leadershipitem{Organizer, Rosetta Developer Meeting}{2012}{The annual Rosetta Developer Meeting was held in Baltimore. Arranged the program, travel, lodging and meals}
+\leadershipitem{Organizer, Rosetta Developer Meeting}{2012}{Arranged the program, travel, lodging and meals}
 
 \section*{\allcapsspacing{Invited Seminars and Talks}}
 \begin{etaremune}
@@ -124,7 +135,8 @@ brian.weitzner@jhu.edu}}
 \item Weitzner BD, Gray JJ (2013) ``Computational Structure Prediction, Docking and Design of Antibodies'' \textit{IBC Antibody Engineering and Therapeutics}, Huntington Beach, CA. (delivered on behalf of JJG during his paternity leave)
 \end{etaremune}
 
-\section*{\allcapsspacing{Scientific Talks}}
+\section*{\allcapsspacing{Conference Contributions}}
+\subsection*{\allcapsspacing{Talks}}
 \begin{etaremune}
 \item Weitzner BD, Kuroda D, Marze N, Xu J, Gray JJ (2013) ``Benchmarking RosettaAntibody: Antibody Modeling Assessment II'' \textit{Antibody Engineering and Therapeutics Conference}, Huntington Beach, CA.
 \item Weitzner BD, Roland RL, Gray JJ (2013) ``Kinked CDR H3-like loops are common'' \textit{AIChE Annual Conference}, San Francisco, CA
@@ -134,7 +146,7 @@ brian.weitzner@jhu.edu}}
 \item Weitzner BD, Baugh EH, Gray JJ (2010) ``PyMOL--PyRosetta Integration'' \textit{RosettaCon}, Leavenworth, WA.
 \end{etaremune}
 
-\section*{\allcapsspacing{Scientific Posters}}
+\subsection*{\allcapsspacing{Posters}}
 \begin{etaremune}
 \item Weitzner, BD, Dunbrack RL, Gray JJ (2015) ``\textit{De novo} CDR-H3 loop structure prediction using a structurally derived kink constraint'' \textit{RosettaCon}, Leavenworth, WA.
 \item Weitzner, BD, Dunbrack RL, Gray JJ (2015) ``The origin of CDR H3 Structural Diversity'' \textit{Biophys. Soc. Mtg.}, Baltimore, MD.
